@@ -16,9 +16,16 @@
 * 1995 Sun Microsystems 발표
 
 #### 1.2.2 자바의 특성
-**1. 이식성이 높음**
-  * JAVA 언어로 개발된 프로그램은 JRE(Java RUntime Environment)가 설치된 모든 운영체제에서 실행이 가능하다.
-    * Source File > Compile > Byte Code File > Windows/Linux/Mac...
+1. 이식성이 높음
+  * JAVA 언어로 개발된 프로그램은 JRE(Java Runtime Environment)가 설치된 모든 운영체제에서 실행이 가능하다.
+    * Source File > Compile > Byte Code File > Windows/Linux/Mac...<br>
     : 바이트 코드 파일을 각 운영체제 별 JVM이 분석해 실행한다.
 
-**2. 객체 지향 언어**
+2. 객체 지향 언어
+  * OOP(Object Oriented Programming)
+    * 한 프로그램에서 부품에 해당하는 객체를 생성하고, 이를 연결/조립해 프로그램을 완성하는 기법
+    * 캡슐화, 상속, 다형성 보유
+
+3. 함수적 스타일 코딩
+  * 대용량 데이터 병렬 처리, 이벤트 처리에 용이한 코딩 기법
+  * JAVA는
