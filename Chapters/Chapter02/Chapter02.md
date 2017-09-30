@@ -1,4 +1,3 @@
-# JAVA Basic Language
 ## Chapter 02. Variables and Data Types (변수와 타입)
 
 ## 2.1 변수
@@ -173,4 +172,3 @@ double |8
   * char과 int의 연산이 발생하면 결과는 int로 산출된다.
   * long 타입 포함 시에는 결과값을 long으로 산출한다.
   * 실수 연산 중 double 포함 시 결과값은 double로 산출된다.
-  

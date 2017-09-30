@@ -1,4 +1,3 @@
-# JAVA Basic Language
 ## Chapter 01. About JAVA
 
 ## 1.1 프로그래밍 언어
