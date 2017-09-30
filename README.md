@@ -7,7 +7,7 @@
 ##### Chapter 01. About JAVA (자바 기본) [link](https://github.com/RicheyHans/-JAVA-LanguageStudy/blob/master/Chapters/Chapter01/Chapter01.md)
 
 
-##### Chapter 02. Variables and Data Types (변수와 타입)
+##### Chapter 02. Variables and Data Types (변수와 타입) [link](https://github.com/RicheyHans/-JAVA-LanguageStudy/blob/master/Chapters/Chapter02/Chapter02.md)
 
 
 ##### Chapter 03. Operators (연산자)
