@@ -61,6 +61,13 @@
 
 ## 2.2 데이터 타입
 ### 2.2.1 기본 타입(primitive type)
+* 비트(bit) : 메모리에서 0, 1을 기억한는 최소단위
+* 바이트(byte) : 8개의 bit를 의미하는 단위.
+* 정수 : byte, char, short, int, long
+  실수 : float, double
+  논리 : boolean
+
+### 2.2.2 정수 타입(byte, char, short, int, long)
 
 
 
