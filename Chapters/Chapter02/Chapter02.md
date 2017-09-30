@@ -50,7 +50,7 @@
   int value; // 선언
   int result = value + 100; // 선언 후 초기화 되지 않은 value로 인해 컴파일 에러
   ```
-<br>
+
 ### 2.1.4 변수의 사용 범위
 
 * 로컬 변수(local method)
