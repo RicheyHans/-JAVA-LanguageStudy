@@ -1,9 +1,7 @@
 # JAVA Basic Language
 ## Chapter 01. About JAVA
 
-- - -
-
-#### 1.1 프로그래밍 언어
+### 1.1 프로그래밍 언어
 * 프로그래밍 언어 구분 <br>
     * 고급 언어 : 프로그래밍 언어 중, 사람이 상대적으로 이해하기 쉬운 언어. 기계어(0101010000...) 번역을 위한 컴파일(Compile) 과정 필요
     * 저급 언어 : 프로그래밍 언어 중, 기계어에 가까워 사람이 학습 / 이해하기 어려운 언어.
@@ -13,11 +11,11 @@
 
 
 
-#### 1.2 JAVA
-##### 1.2.1 자바
+### 1.2 JAVA
+#### 1.2.1 자바
 * 1995 Sun Microsystems 발표
 
-##### 1.2.2 자바의 특성
+#### 1.2.2 자바의 특성
 **1. 이식성이 높음**
   * JAVA 언어로 개발된 프로그램은 JRE(Java RUntime Environment)가 설치된 모든 운영체제에서 실행이 가능하다.
     * Source File > Compile > Byte Code File > Windows/Linux/Mac...
