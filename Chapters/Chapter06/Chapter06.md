@@ -203,7 +203,69 @@ public class SingletonExample{
 
 public class Main{
   public static void main(String[] args){
-    Singleton obj1 = Singleton.getInstance;
+    Singleton obj1 = Singleton.getInstance();
   }
 }
 ```
+
+<br>
+
+## 6.11 final 필드와 상수
+### 6.11.1 final 필드
+* final 필드는 **초기값이 저장되면 이것이 최종값이 되어 실행 도중 수정이 불가**
+* final 필드 초기값 할당 방법
+  1. 필드 선언 시 할당
+  2. 생성자에서 할당
+    > final 필드를 초기화하지 않으면 컴파일 에러 발생
+
+* 단, final 필드는 객체별로는 생성이 가능하다.
+
+### 6.11.2 상수(static final)
+* 불변의 상수는 수정될 수 없으며, 객체마다 저장할 필요가 없는 공용성을 갖는다.
+* static final(상수)는 객체마다 저장되지 않고 클래스에만 저장되며 초기값을 변경할 수 없다.
+```
+static final double PI = 3.14159;
+```
+  > static 블록 내에서 초기화 가능
+
+<br>
+
+## 6.12 패키지(Pending)
+
+<br>
+
+## 6.13 접근 제한자
+
+### 6.13.1 클래스 접근 제한
+  * default
+    * public 생략 시 default제한을 갖는다. **다른 패키지에서의 사용** 이 제한된다.
+  * public
+    * 다른 패키지에서도 제한 없이 클래스를 사용 가능하다.
+
+### 6.13.2 생성자 접근 제한
+  * public
+    * 모든 패키지에서 제한 없이 호출. 클래스가 default 제한이라면 같은 패키지에서만 호출 가능
+  * protected
+    * default와 마찬가지로 동일 패키지의 해당 클래스 자식 클래스에만 호출 가능
+  * default
+    * 다른 패키지에서는 호출이 불가능
+  * private
+    * 오로지 클래스 내부에서만 생성자 호출 가능(Singleton 활용)
+
+### 6.13.3 필드/메서드 접근 제한
+  * public
+    * 제약 없는 접근 가능. 단, 클래스 역시 public이어야 함
+  * protected
+    * 같은 패키지의 자식 클래스에서 사용 가능
+  * default
+    * 같은 패키지에서 제한 없으며, 다른 패키지에서는 접근 불가
+  * private
+    * 오로지 클래스 내부에서만 사용 가능
+
+<br>
+
+## 6.14 Getter / Setter(Pending)
+
+<br>
+
+## 6.15 Annotation(Pending)
