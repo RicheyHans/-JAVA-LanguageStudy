@@ -80,4 +80,54 @@
 ### 6.7.2 생성자 선언
 * 명시적 선언자가 있을 경우, 기본 생성자는 사용할 수 없다.
 
-### 6.7.3 
+### 6.7.3 필드 초기화
+* 필드는 객체 생성 시 자동으로 기본 초기값이 설정 된다.
+* 또는 선언 시 초기화, 생성자 초기화 가능
+* 필드와 생성자 파라미터 명이 동일할 경우, 우선순위는 파라미터가 더 높으므로 필드에는 this를 사용한다.
+  ```
+  public Korean(String name, String ssn){
+    this.name = name;
+    this.ssn = ssn;
+  }
+  ```
+
+### 6.7.4 생성자 오버로딩
+* 매개 변수를 달리하는 생성자를 다수 선언하는 것
+  ```
+  public class Phone{
+    public Phone(){}
+    public Phone(String name){}
+    public Phone(String name, int modelNum){}
+  }
+  ```
+
+  ```
+  Phone phone = new Phone();
+  Phone phone = new Phone("iPhone");
+  Phone phone = new Phone("iPhoneX", 00128);
+  ```
+### 6.7.5 다른 생성자 호출( this() )(pending)
+
+<br>
+
+## 6.8 메소드
+
+### 6.8.1 메서드 선언
+
+### 6.8.2 return
+* 자동 변환이 가능한 타입일 경우 return 타입이 다를 수 있음
+
+### 6.8.3 메서드 호출
+* 클래스 외부에서 메서드를 호출할 경우 객체 생성 후 호출해야 한다. (메서드는 객체가 존재해야 존재 가능)
+
+### 6.8.4 메서드 Overloading
+* 클래스 내에 같은 이름의 메서드를 다수 선언하는 것
+* 메서드 이름은 동일하며 파라미터의 타입, 개수, 순서가 달라야 한다.
+  * 파라미터 자동 변환 발생 가능
+  * 리턴 타입은 무관
+* 대표적인 예는 System.out.println( )
+  * 파라미터 타입에 따라 출력 동작이 발생한다.
+
+<br>
+
+## 6.9 인스턴스 멤버와 this
