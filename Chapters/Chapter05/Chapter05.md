@@ -6,6 +6,8 @@
 * 참조 타입(Reference Type)
   * 배열, 열거, 클래스, 인터페이스 - **메모리의 번지** 를 변수에 저장
 
+<br>
+
 ## 5.2 메모리 사용 영역
 * JVM Runtime Data Area
 (그림)
@@ -46,7 +48,7 @@
 
 * NullPointerException
   * **null을 가진 참조타입 변수는 사용이 불가능**(초기화만 가능)
-    >null을 가진 배열 특정 인덱스에 값을 할당하는 경우
+    >null을 가진 배열 특정 인덱스에 값을 할당하는 경우<br>
     >null을 가진 String 변수의 길이를 구하는 경우
 
 <br>
@@ -102,7 +104,7 @@ String[] naems = {"한승범", "조니뎁", "민경훈"};
   * 메서드의 파라미터가 배열 타입일 경우에도 **배열이 선언된 것으로 간주해** new 연산자를 사용해야 함
     ```
     int add(int[] scores){ // };
-    int result = add(new int[]{ 1,2,3,4} );
+    int result = add(new int[]{ 1,2,3,4 } );
     ```
 
 ### 5.6.4 new 연산자로 배열 생성
@@ -140,3 +142,90 @@ String[] naems = {"한승범", "조니뎁", "민경훈"};
   ```
   int[][] scores = { {95,80}, {100,77} };
   ```
+
+### 5.6.8 객체를 참조하는 배열
+* primitive 타입 배열은, 각 항목이 직접 값을 갖고 있지만 참조 타입(클래스, 인터페이스, String) 배열은 각항목에 메모리 주소를 갖는다.
+  * String[] 배열은 각 항목에 문자열이 아닌 또다른 String 객체의 주소를 갖는다.<br>
+    String 배열 요소의 연산자 비교 사용 시 == / equals의 관계도 리터럴과 객체 관계에 주의
+
+### 5.6.9 배열 복사
+* 배열은 크기 변경이 불가하므로 큰 배열 생성 후 항목 값을 복사해 사용한다.
+* System.arraycopy() 메서드 사용
+  ```
+  System.arraycopy(arr1, 0, arr2, 0, arr1.length);
+                //원본, 원본 시작 인덱스, 대상 배열, 대상 배열 시작 인덱스, 복사 개수
+  ```
+  > 참조 타입의 배열(String)일 경우, 복사 되는 것은 객체의 **메모리 주소** 이며 동일 객체를 참조
+  > 이를 **shallow copy** 로 칭한다.
+
+### 5.6.10 향상된 for문
+
+<br>
+
+## 5.7 열거 타입(enum)
+* 열거 타입 : 한정된 값만을 갖는 데이터 타입
+* 열거 타입 변수 : 몇 개의 열거 상수 중에서 하나의 상수를 저장하는 데이터 타입 변수
+> 열거 타입 안에 선언된 각각의 **'열거 상수'는 메소드 영역** 에 생성되며, 이 각각의 열거 상수는 **heap영역에 생성된 '열거 상수 문자열' 객체** 를 참고하는 구조이다.
+
+### 5.7.1 열거 타입 선언
+```
+public enum Week {
+  MONDAY,
+  TUESDAY,
+  WEDNESDAY,
+  THURSDAY,
+  FRIDAY,
+  SATURDAY,
+  SUNDAY
+}
+```
+
+### 5.7.2 열거 타입 변수
+```
+Week today = Week.SUNDAY;
+```
+* **열거 타입 변수** today 는 Stack 영역에 생성
+* today에 저장되는 값은 Week.SUNDAY **열거 상수** 가 참조하는 **(문자열)객체의 메모리 주소**
+
+```
+즉, today에는 열거 상수 SUNDAY가 참조하는 (문자열)객체의 메모리 주소가 복사되어 대입된다.
+```
+> today == Week.SUNDAY 는 true가 산출된다.
+
+```
+Week week1 = Week.SUNDAY;
+Week week2 = Week.SUNDAY;
+```
+> week1 과 week2에는 같은 문자열 객체의 메모리 주소가 대입되므로 week1 == week2 는 true
+
+### 5.7.3 열거 객체 메서드
+* name()
+  * 열거 객체가 가진 문자열을 리턴
+    ```
+    Week today = Week.SUNDAY;
+    String str = today.name();    // "SUNDAY"
+    ```
+* ordinal()
+  * 열거 객체의 순번
+    ```
+    int ordinal = today.ordinal   // 6
+    ```
+* valueOf(String str)
+  * 인수로 주어진 문자열과 동일한 문자열을 가지는 객체 리턴
+    ```
+    Week weekDay = Week.valueOf("SATURDAY");
+    ```
+* values()
+  * 열거 타입의 모든 열거 객체를 배열로 리턴
+    ```
+    Week[] days = Week.values();
+    days[0] == MONDAY....
+    ```
+* compareTo()
+  * 열거 객체의 순번을 비교해 int값 리턴
+    ```
+    Week day1 = Week.MONDAY;     // 0번째
+    Week day2 = Week.WEDNESDAY;  // 2번째
+    int result1 = day1.compareTo(day2);   // -2
+    int result2 = day2.compareTo(day1);   // 2
+    ```
