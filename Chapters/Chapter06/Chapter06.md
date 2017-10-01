@@ -131,3 +131,79 @@
 <br>
 
 ## 6.9 인스턴스 멤버와 this
+* 인스턴스 멤버는 객체(인스턴스) 생성 후 사용할 수 있는 필드와 메서드를 의미
+  * 인스턴스 필드 : heap 영역에 개별로 생성된 객체마다 존재한다.
+  * **인스턴스 메서드 : JVM 메서드 메모리 영역에 저장되어 공유**
+
+* this는 객체 자신을 의미한다.
+
+<br>
+
+## 6.10 static(정적 멤버)
+정적 멤버는 **클래스** 에 고정된 멤버
+  * 객체 생성 없이 사용할 수 있는 필드 / 메서드
+
+### 6.10.1 정적 멤버 선언
+* 정적 필드 / 메서드는 클래스 로더가 클래스 바이트 코드 로딩 후 메소드 메모리 영역에 적재한다.
+  * **클래스 로딩이 완료되면 객체 생성 없이 바로 사용이 가능하다**
+
+### 6.10.2 정적 멤버 사용
+* 정적 멤버는 개체 생성 없이, 클래스의 이름과 함께 바로 사용이 가능하다.
+  ```
+  public class Calculaltor{
+    ststic double pi = 3.1459;
+  }
+  ...
+  double result = Calculator.pi + 128;
+  ```
+### 6.10.3 정적 필드 초기화 블록
+* 정적 필드는 통상적으로 선언과 동시에 초기화
+  ```
+  static double pi = 3.1459;
+  ```
+  > static 필드는 인스턴스 생성 없이 사용 가능해야 하므로, **생성자를 통한 초기화가 불가능**
+
+* 별도 연산 작업이 포함된 static 필드 초기화 작업은 static 블록에서 진행
+  * 클래스 로딩 시 자동 실행
+    ```
+    static String info;
+
+    static{
+      info = "version" + "number";
+    }
+    ```
+
+### 6.10.4 정적 메서드 블록 선선 시 주의
+* 정적 메서드, 블록 선언 시 주의 사항
+  * static 블록은 **객체가 없어도 실행** 된다는 특징이 있으므로, 객체 생성 후 사용이 가능한 **인스턴스 필드, 인스턴스 메서드** 를 사용할 수 없다.
+  * static 블록 내에서 인스턴스 멤버를 사용하기 위해서는 **객체를 생성한 후** 사용해야 한다.
+
+### 6.10.5 싱글톤(Singleton)
+* 프로그램 상에 **단 하나의 객체** 만을 생성해서 관리할 경우
+  * 주 기능 : 클래스 외부에서 **new 연산자로 생성자를 호출 할 수 없어야 한다.**<br>
+             (객체는 new 연산자만큼 생성된다)
+
+1. 생성자에 private을 붙여 외부 클래스 호출을 막는다.
+2. 내부에서 클래스 타입의 private 정적 변수를 생성해 new 연산자를 호출한다.
+3. 클래스 내부에 정적 메서드인 getInstance(){ } 를 생성해 2.에서 생성한 정적 변수를 return한다.
+
+```
+public class SingletonExample{
+  // 생성자
+  private SingletonExample(){ }
+
+  // static 필드
+  private static SingletonExample singleton = new SingletonExample();
+
+  // static 메서드
+  static SingletonExample getInstance(){
+    return singleton;
+  }
+}
+
+public class Main{
+  public static void main(String[] args){
+    Singleton obj1 = Singleton.getInstance;
+  }
+}
+```
